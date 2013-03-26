@@ -1,5 +1,7 @@
 PicasaWebApp::Application.routes.draw do
 
+  get "albums/index"
+
   root to: "sessions#new"
   match "/auth/:provider/callback", to: "sessions#create"
   match "/auth/failure", to: "sessions#failure"
