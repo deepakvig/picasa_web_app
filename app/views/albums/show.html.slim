@@ -1,0 +1,17 @@
+h2 Album Pictures:
+br
+- @album_pics.each_slice(4) do |pictures|
+  p
+    b Showing upto 3 pics for this album.
+  .row-fluid
+    ul
+      - pictures.first(3).each do |picture|
+        li.span4
+          .caption
+            h3= picture[:title]
+          img[src="#{picture[:url]}" class="img-pic"]
+          .caption
+            p.created_at
+              = convert_date picture[:published_at]
+          div[class="#{picture[:id]}"]
+          = render 'comments/form', :url => picture[:pic_url] 

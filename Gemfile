@@ -25,6 +25,12 @@ gem 'slim-rails'
 gem 'omniauth-google-oauth2'
 gem 'jquery-rails'
 gem 'figaro'
+gem 'nokogiri'
+gem "therubyracer"
+gem "less-rails"
+gem "twitter-bootstrap-rails"
+gem 'rest-client'
+gem 'picasa', :git => 'git@github.com:deepakvig/picasa.git'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

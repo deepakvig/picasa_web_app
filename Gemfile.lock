@@ -1,3 +1,10 @@
+GIT
+  remote: git@github.com:deepakvig/picasa.git
+  revision: be3e295fc475e22d1ae8d6647d063b28e272ad0f
+  specs:
+    picasa (0.6.4)
+      httparty
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -37,6 +44,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.2)
+    commonjs (0.2.6)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -47,6 +55,9 @@ GEM
       rails (>= 3, < 5)
     hashie (1.2.0)
     hike (1.2.1)
+    httparty (0.10.2)
+      multi_json (~> 1.0)
+      multi_xml (>= 0.5.2)
     httpauth (0.2.0)
     i18n (0.6.4)
     journey (1.0.4)
@@ -56,13 +67,21 @@ GEM
     json (1.7.7)
     jwt (0.1.8)
       multi_json (>= 1.5)
+    less (2.3.1)
+      commonjs (~> 0.2.6)
+    less-rails (2.3.2)
+      actionpack (>= 3.1)
+      less (~> 2.3.1)
+    libv8 (3.11.8.13)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.21)
     multi_json (1.7.2)
+    multi_xml (0.5.3)
     multipart-post (1.2.0)
+    nokogiri (1.5.9)
     oauth2 (0.8.1)
       faraday (~> 0.8)
       httpauth (~> 0.1)
@@ -104,6 +123,9 @@ GEM
     rake (10.0.4)
     rdoc (3.12.2)
       json (~> 1.4)
+    ref (1.0.4)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     sass (3.2.7)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -124,11 +146,18 @@ GEM
       tilt (~> 1.1, != 1.3.0)
     sqlite3 (1.3.7)
     temple (0.5.5)
+    therubyracer (0.11.4)
+      libv8 (~> 3.11.8.12)
+      ref
     thor (0.18.0)
     tilt (1.3.6)
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
+    twitter-bootstrap-rails (2.2.6)
+      actionpack (>= 3.1)
+      execjs
+      railties (>= 3.1)
     tzinfo (0.3.37)
     uglifier (1.3.0)
       execjs (>= 0.3.0)
@@ -141,10 +170,16 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   figaro
   jquery-rails
+  less-rails
+  nokogiri
   omniauth-google-oauth2
+  picasa!
   rails (= 3.2.12)
+  rest-client
   sass-rails (~> 3.2.3)
   slim
   slim-rails
   sqlite3
+  therubyracer
+  twitter-bootstrap-rails
   uglifier (>= 1.0.3)

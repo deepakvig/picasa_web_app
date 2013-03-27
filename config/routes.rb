@@ -1,6 +1,9 @@
 PicasaWebApp::Application.routes.draw do
 
-  get "albums/index"
+  post "/comments", to: "comments#create"
+
+  get "albums", to: "albums#index", as: "albums"
+  get "albums/show", to: "albums#show", as: "album"
 
   root to: "sessions#new"
   match "/auth/:provider/callback", to: "sessions#create"

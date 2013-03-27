@@ -1,2 +1,17 @@
-h1 Albums#index
-p Find me in app/views/albums/index.html.slim
+h2 #{current_user.name}'s Albums:
+br
+- if @albums.present?
+  .row-fluid
+    - @albums.each_slice(4).each do |albums|
+      ul
+        - albums.each do |album|
+          li.span3
+            .caption
+              = link_to image_tag("#{album[:photo_url]}", class: "img-album"), album_path(:album_url => album[:url], :rights => album[:rights])
+              h3
+                = link_to album[:title], album_path(:album_url => album[:url])
+              p.created_at
+                = convert_date album[:published_at]
+- else
+  p No albums were found.
+

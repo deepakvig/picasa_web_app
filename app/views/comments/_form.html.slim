@@ -1,0 +1,5 @@
+= form_tag '/comments', :remote => true do
+  = text_field_tag 'desc' 
+  = hidden_field_tag 'pic_url', url
+  br
+  = submit_tag 'Add Comment' 
