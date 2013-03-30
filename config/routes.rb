@@ -1,6 +1,8 @@
 PicasaWebApp::Application.routes.draw do
 
   post "/comments", to: "comments#create"
+  post "/sessions", to: "sessions#create"
+  delete "/sessions", to: "sessions#destroy"
 
   get "albums", to: "albums#index", as: "albums"
   get "albums/show", to: "albums#show", as: "album"

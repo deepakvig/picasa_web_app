@@ -1,22 +1,12 @@
-- if current_user
-  h1 User Profile
-  p
-    strong Name:
-    = current_user.name
-  p
-    strong Provider:
-    = current_user.provider
-  p
-    strong OmniAuth UID:
-    = current_user.uid
-  p= link_to "Log out", logout_path
-- else
-  h1 Sign In
+.new-user
+  h2 Sign in using Google Account
 
-  p
-    strong Sign in through one of these services:
+  = form_tag '/sessions' do 
+    = label_tag "user_id"
+    = text_field_tag "user_id"
 
-  .auth_providers
-    a href="/auth/google_oauth2" class="auth_provider"
-      = image_tag "google_apps_64.png", size: "64x64", alt: "Google"
-      Google
+    = label_tag "password"
+    = password_field_tag "password"
+    br
+    = submit_tag "Sign in" , :class => "btn btn-primary"
+

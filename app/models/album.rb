@@ -5,9 +5,11 @@ class Album
 
   attr_accessor :url
 
-  def self.fetch_albums uid, access_token
-    url = get_url uid, access_token
-    document = Nokogiri::HTML(open(url))
+  def self.fetch_albums user_id, key
+    path = "/data/feed/api/user/#{user_id}"
+    puts key
+    puts get_request(path, key).body
+    document = Nokogiri::HTML(get_request(path, key).body)
     document.css('feed entry').map do |node|
       {
         :title => node.css('title').first.text,
@@ -19,9 +21,8 @@ class Album
     end
   end
 
-  def self.fetch_pics(uid, url, access_token, rights)
-    url = get_url uid, access_token, rights, url
-    doc = Nokogiri::XML(open(url))
+  def self.fetch_pics path, key
+    doc = Nokogiri::XML(get_request(path, key).body)
     doc.css('feed entry').map do |node|
       url = node.css('id').text
       id = url.split('/').last
@@ -48,11 +49,13 @@ private
     end
   end
 
-  def self.get_url uid, access_token, rights='private', url=nil
-    url = "#{ENV['GOOGLE_PICASA_BASE_URL']}#{uid}?kind=album" if !url 
-    url = url + "&access=all&access_token=#{access_token}" if rights == 'private'
-    url
+  def self.get_request path, headers
+    https = Net::HTTP.new('picasaweb.google.com', 443)
+    https.use_ssl = true
+    headers = {
+      'Authorization' => "GoogleLogin auth=#{headers}"
+    }
+    res = https.get(path, headers)
   end
-
   # attr_accessible :title, :body
 end

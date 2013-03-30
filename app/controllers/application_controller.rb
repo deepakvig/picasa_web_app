@@ -3,9 +3,13 @@ class ApplicationController < ActionController::Base
 
 private
 
-  def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  def logged_in?
+    if session[:user_id] && session[:key]
+      return true
+    else
+      return false 
+    end
   end
-  helper_method :current_user
+  helper_method :logged_in?
 
 end

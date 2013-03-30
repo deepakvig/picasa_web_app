@@ -1,0 +1,28 @@
+doctype 5
+html
+  head
+    title Picasa
+    = stylesheet_link_tag "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  body
+    .navbar.navbar-inverse.navbar-fixed-top
+      .navbar-inner
+        .container
+          a.brand href="#{root_url}" Picasa
+          .nav-collapse.collapse.navbar-responsive-collapse
+            ul.nav
+              li.active
+                a Home
+              li
+                a href="#" About Me
+            - if session[:user_id]
+              ul.nav.pull-right
+                li
+                  a href="#"
+                    = session[:user_id]
+                li.divider-vertical
+                li= link_to "Sign out", '/sessions', :method => :delete
+
+    .container
+      = yield
