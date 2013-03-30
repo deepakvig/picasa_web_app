@@ -20,6 +20,19 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :development, :test do
+  gem "rspec-rails", "~> 2.12.2"
+  gem "factory_girl_rails", "~> 4.2.0"
+  gem "guard-rspec", "~> 2.4.0"
+end
+
+group :test do
+  gem "faker", "~> 1.1.2"
+  gem "capybara", "~> 2.0.2"
+  gem "database_cleaner", "~> 0.9.1"
+  gem "launchy", "~> 2.2.0"
+end
+
 gem 'slim'
 gem 'slim-rails'
 gem 'omniauth-google-oauth2'
