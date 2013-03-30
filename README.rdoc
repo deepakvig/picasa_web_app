@@ -3,3 +3,7 @@ User can use picasa APIs like viewing Albums, Pictures and Commenting on picture
 User can log in using Google credentials, once he is logged in then he can view his Albums and Pictures inside the albums
 
 User can also comment on the pics and the comment will be seen temporarily below the picture and the comment will be added to the picasa picture
+
+
+To install this app, you just need to do bundle install. Database is not used in this app so no need to do rake:db:migrate
+
